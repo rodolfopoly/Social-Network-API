@@ -5,7 +5,7 @@ const ThoughtSchema = new Schema({
 
   thoughtText: {
     type: String,
-    require: 'Thought Text is Required',
+    require: [true, 'Thought Text is Required'],
     validate: [({ length }) => length >= 1 && length <= 280, 'Must be between 1 and 280 characters']
   },
   createdAt: {
@@ -17,7 +17,7 @@ const ThoughtSchema = new Schema({
   },
   username: {
     type: String,
-    required: 'Username is required'
+    required: [true, 'Username is required']
   },
   reactions: [ReactionSchema]
 },
